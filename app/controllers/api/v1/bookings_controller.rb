@@ -6,19 +6,10 @@ class Api::V1::BookingsController < Api::V1::BaseController
         @bookings = Booking.where(service_id: params[:service_id])
       else
         @bookings = Booking.all
-      render json: @bookings
+      
     end
-    # def index
-#     if params[:catering_id]
-#       @reservations = Reservation.where(catering_id: params[:catering_id])
-#     elsif params[:user_id]
-#       @reservations = Reservation.where(user_id: params[:user_id])
-#     else
-#       @reservations = Reservation.all
-#     end
-#     render json: @reservations #Just for testing
-#   end
-
+    render json: @bookings
+    
   end
 
   def show
