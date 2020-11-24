@@ -5,9 +5,27 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :users, only: [ :show, :create, :update, :destroy ]
-      resources :services, only: [ :index, :show, :create, :update, :destroy ]
+      resources :users, only: [ :show, :create, :update, :destroy ] do
+        resources :bookings
+      end
+      resources :services, only: [ :index, :show, :create, :update, :destroy ] do 
+        resources :bookings
+      end
       resources :reviews, only: [ :index, :show, :create, :update, :destroy ]
+      resources :bookings, only: [ :show, :create, :update, :destroy ] do 
+        resources :reviews
+      end
     end
   end
 end
+
+# def index
+#     if params[:catering_id]
+#       @reservations = Reservation.where(catering_id: params[:catering_id])
+#     elsif params[:user_id]
+#       @reservations = Reservation.where(user_id: params[:user_id])
+#     else
+#       @reservations = Reservation.all
+#     end
+#     render json: @reservations #Just for testing
+#   end
