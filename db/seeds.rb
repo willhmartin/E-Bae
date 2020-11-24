@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 Service.destroy_all
+Review.destroy_all
 Booking.destroy_all
+
 
 user1 = User.create(role: "user", name: "Magoolio", gender: "male", age: 42)
 user2 = User.create(role: "user", name: "Bob", gender: "male", age: 60)
@@ -23,4 +25,6 @@ Service.create!(area: "Beijing", duration: 3, price: 400, content: "I'll cover u
 Service.create!(area: "Xian", duration: 3, price: 400, content: "I'll cover up the cracks in your life", user: user5)
 
 booking1 = Booking.create!(date: DateTime.new, location: "Shanghai", total: 130, user: user1, service: service1)
+booking2 = Booking.create!(date: DateTime.new, location: "Chongqing", total: 75, user: user2, service: service1)
 
+review1 = Review.create!(rating: 4, content: "Lovely service.", booking: booking1)
