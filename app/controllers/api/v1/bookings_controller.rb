@@ -22,10 +22,11 @@ class Api::V1::BookingsController < Api::V1::BaseController
 
   def create
      @booking = Booking.new(booking_params)
-    #  @booking.service = Service.find(params[:service_id])
-     
+     @booking.service = Service.find(params[:service_id])
+     @booking.user = User.find(params[:user_id])
     @booking.save
     render json: @booking
+   
   end
 
   def update
