@@ -18,7 +18,6 @@ class Api::V1::ServicesController < Api::V1::BaseController
 
   def show
     @service = Service.find(params[:id])
-    render json: @service
   end
 
   def create
