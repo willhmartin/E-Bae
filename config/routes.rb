@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: [ :show, :create, :update, :destroy ] do
-        resources :bookings, only: [ :index, :create ]
-        resources :services, only: [ :index, :create ]
+        # resources :bookings, only: [ :index ] # Was told to delete yesterday, disagree
+        # resources :services, only: [ :index, :create ]
       end
       resources :services, only: [ :index, :show, :create, :update, :destroy ] do 
-        resources :bookings, only: [ :index ]
+        resources :bookings, only: [ :create ]
       end
       resources :reviews, only: [ :index, :show, :create, :update, :destroy ]
-      resources :bookings, only: [ :show, :create, :update, :destroy ] do 
+      resources :bookings, only: [ :show, :update, :destroy ] do 
         resources :reviews
       end
     end
