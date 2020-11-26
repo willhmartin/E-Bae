@@ -17,12 +17,13 @@ class Api::V1::BookingsController < Api::V1::BaseController
 
   def show
     @booking = Booking.find(params[:id])
-    render json: @booking
+    
   end
 
   def create
      @booking = Booking.new(booking_params)
-     @booking.service = Service.find(params[:service_id])
+    #  @booking.service = Service.find(params[:service_id])
+     
     @booking.save
     render json: @booking
   end
