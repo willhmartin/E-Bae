@@ -2,12 +2,17 @@ class Api::V1::ServicesController < Api::V1::BaseController
 
   
 
-  skip_before_action :verify_authenticity_token, only: [:destroy]
+    skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
+
 
   def index
     # @stories = Story.all
     # render json: @stories #Just for testing
-    @services = Service.all
+    if params[:user_id]
+      @services = Service.where(user_id: params[:user_id])
+    else
+      @services = Service.all
+    end
     render json: @services
   end
 
@@ -17,13 +22,20 @@ class Api::V1::ServicesController < Api::V1::BaseController
   end
 
   def create
-    @service = Service.new(service_params)
-    @service.save
+    if params[:user_id]
+      @service = Service.new(service_params)
+      @service.user_id = params[:user_id]
+      @service.save
+    else
+      @service = Service.new(service_params)
+      @service.save
+    end
     render json: @service
   end
 
+
   def update
-    @service = User.find(params[:id])
+    @service = Service.find(params[:id])
     @service.update(service_params)
     render json: @service
   end
@@ -35,8 +47,8 @@ class Api::V1::ServicesController < Api::V1::BaseController
   end
 
   private
-  def user_params
-    params.require(:service).permit(:price, :duration, :content, :area)
+  def service_params
+    params.require(:service).permit(:price, :duration, :content, :area, :user_id)
   end
   
 end

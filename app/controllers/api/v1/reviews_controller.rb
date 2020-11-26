@@ -1,17 +1,36 @@
 class Api::V1::ReviewsController < Api::V1::BaseController
+skip_before_action :verify_authenticity_token, only: [ :create, :destroy ]
+
+
   def index
+    if params[:booking_id]
+      @review = Review.where(booking_id: params[:booking_id])
+    else
+      @review = Review.find(params[:id])
+    end
+    render json: @review
   end
 
   def show
-    @review = Review.find(params[:id])
+    if params[:booking_id]
+      @review = Review.where(booking_id: params[:booking_id])
+    else
+      @review = Review.find(params[:id])
+    end
     render json: @review
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.save
-    render json: @review
+    if params[:booking_id]
+      @review = Review.new(review_params)
+      # @review.booking_id = params[:booking_id]
+      @review.save
+    else 
+      @review = Review.new(review_params)
+      @review.save      
   end
+  render json: @review
+end
 
   def destroy
     @review = Review.find(params[:id])
@@ -20,8 +39,8 @@ class Api::V1::ReviewsController < Api::V1::BaseController
   end
 
   private
-  def user_params
-    params.require(:review).permit(:rating, :content)
+  def review_params
+    params.require(:review).permit(:rating, :content, :booking_id)
   end
 
 end

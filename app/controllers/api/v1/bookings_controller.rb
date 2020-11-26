@@ -1,4 +1,7 @@
 class Api::V1::BookingsController < Api::V1::BaseController
+
+  skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
+
   def index
     if params[:user_id]
       @bookings = Booking.where(user_id: params[:user_id])
