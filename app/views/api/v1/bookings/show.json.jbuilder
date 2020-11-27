@@ -1,4 +1,4 @@
-json.extract! @booking, :location, :date, :id
+json.extract! @booking, :location, :date, :event, :id, :dateOnly
 json.user do
   json.user_id @booking.user.id
   json.name @booking.user.name
