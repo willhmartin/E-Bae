@@ -11,7 +11,7 @@ class Api::V1::BookingsController < Api::V1::BaseController
         @bookings = Booking.all
       
     end
-    render json: @bookings
+    
     
   end
 
@@ -43,7 +43,7 @@ class Api::V1::BookingsController < Api::V1::BaseController
 
   private
   def booking_params
-    params.require(:booking).permit(:date, :location, :total, :user_id, :service_id)
+    params.require(:booking).permit(:date, :location, :total, :event, :dateOnly, :user_id, :service_id)
   end
 
 end
