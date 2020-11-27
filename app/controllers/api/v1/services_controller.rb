@@ -1,6 +1,6 @@
 class Api::V1::ServicesController < Api::V1::BaseController
 
-  
+
 
     skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
 
@@ -13,7 +13,7 @@ class Api::V1::ServicesController < Api::V1::BaseController
     else
       @services = Service.all
     end
-    render json: @services
+    # render json: @services
   end
 
   def show
@@ -49,5 +49,5 @@ class Api::V1::ServicesController < Api::V1::BaseController
   def service_params
     params.require(:service).permit(:price, :duration, :content, :area, :user_id)
   end
-  
+
 end
