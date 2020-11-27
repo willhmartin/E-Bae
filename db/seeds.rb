@@ -15,7 +15,7 @@ user1 = User.create(role: "user", name: "Magoolio", gender: "female", age: 42)
 user2 = User.create(role: "user", name: "Arana", gender: "female", age: 60)
 user3 = User.create(role: "user", name: "Erica", gender: "female", age: 25)
 # Baes
-user4 = User.create(role: "user", name: "Ashkan", gender: "male", age: 25, avatar: "https://tse4-mm.cn.bing.net/th/id/OIP.tjGhq06LK_e0LNvknhBVKgHaLH?pid=Api&rs=1")
+user4 = User.create(role: "user", name: "Ashkan", gender: "male", age: 25, avatar: "https://www.fluentu.com/blog/korean/wp-content/uploads/sites/27/2016/10/famous-korean-singers-2.jpg")
 user5 = User.create(role: "user", name: "Kyle", gender: "male", age: 36, avatar: "https://i2-prod.mirror.co.uk/incoming/article10883656.ece/ALTERNATES/s615b/PROD-Lost-In-Space-Anniversary-party.jpg")
 user6 = User.create(role: "user", name: "Will", gender: "male", age: 27, avatar: "http://www.chinadaily.com.cn/celebrity/img/attachement/jpg/site1/20131211/001ec97909631412122b07.jpg")
 
