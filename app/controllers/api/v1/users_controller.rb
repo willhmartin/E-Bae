@@ -27,6 +27,6 @@ skip_before_action :verify_authenticity_token, only: [:create, :update]
   
 private
   def user_params
-    params.require(:user).permit(:name, :role, :gender, :age)
+    params.require(:user).permit(:name, :role, :gender, :age, :avatar)
   end
 end
