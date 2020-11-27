@@ -11,5 +11,5 @@ json.ebae do
   json.duration @booking.service.duration
   json.area @booking.service.area
   json.name @booking.service.user.name
-   json.gender @booking.service.user.gender
+  json.gender @booking.service.user.gender
 end
