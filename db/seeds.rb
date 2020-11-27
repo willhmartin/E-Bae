@@ -20,8 +20,8 @@ user5 = User.create(role: "user", name: "Kyle", gender: "male", age: 36)
 user6 = User.create(role: "user", name: "Will", gender: "male", age: 27)
 
 service1= Service.create!(area: "Shanghai", duration: 3, price: 400, content: "I'll cover up the cracks in your life", user: user4 )
-service2 = Service.create!(area: "Chengdu", duration: 3, price: 400, content: "I'll cover up the cracks in your life", user: user5)
-service3 = Service.create!(area: "Shanghai", duration: 3, price: 400, content: "I'll cover up the cracks in your life", user: user6)
+service2 = Service.create!(area: "Chengdu", duration: 3, price: 275, content: "We met at the library", user: user5)
+service3 = Service.create!(area: "Shanghai", duration: 3, price: 350, content: "Mothers love me", user: user6)
 # 
 # Service.create!(area: "Beijing", duration: 3, price: 400, content: "I'll cover up the cracks in your life", user: user4)
 # Service.create!(area: "Xian", duration: 3, price: 400, content: "I'll cover up the cracks in your life", user: user5)
