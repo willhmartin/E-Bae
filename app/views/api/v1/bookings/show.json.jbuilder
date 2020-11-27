@@ -12,4 +12,5 @@ json.ebae do
   json.area @booking.service.area
   json.name @booking.service.user.name
   json.gender @booking.service.user.gender
+  json.avatar @booking.service.user.avatar
 end
