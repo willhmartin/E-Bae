@@ -9,11 +9,11 @@ Rails.application.routes.draw do
         # resources :bookings, only: [ :index ] # Was told to delete yesterday, disagree
         # resources :services, only: [ :index, :create ]
       end
-      resources :services, only: [ :index, :show, :create, :update, :destroy ] do 
+      resources :services, only: [ :index, :show, :create, :update, :destroy ] do
         resources :bookings, only: [ :create ]
       end
       resources :reviews, only: [ :index, :show, :create, :update, :destroy ]
-      resources :bookings, only: [ :show, :update, :destroy ] do 
+      resources :bookings, only: [ :show, :update, :destroy ] do
         resources :reviews
       end
     end
